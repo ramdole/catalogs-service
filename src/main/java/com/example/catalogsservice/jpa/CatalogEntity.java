@@ -29,6 +29,6 @@ public class CatalogEntity implements Serializable {
   private Integer unitPrice;
 
   @Column(nullable = false, updatable = false, insertable = false)
-  @ColumnDefault(value = "CURRENT_TIME_STAMP")
+  @ColumnDefault(value = "CURRENT_TIMESTAMP")
   private Date createdAt;
 }

@@ -32,9 +32,9 @@ public class CatalogController {
 
   @GetMapping("catalogs")
   public ResponseEntity<List<ResponseCatalog>> getCatalogs() {
-    Iterable<CatalogEntity> users = catalogService.getAllCatalogs();
+    Iterable<CatalogEntity> catalogs = catalogService.getAllCatalogs();
     List<ResponseCatalog> result = new ArrayList<>();
-    users.forEach(user-> result.add(new ModelMapper().map(user, ResponseCatalog.class)));
+    catalogs.forEach(user-> result.add(new ModelMapper().map(user, ResponseCatalog.class)));
     return ResponseEntity.status(HttpStatus.OK).body(result);
   }
 
