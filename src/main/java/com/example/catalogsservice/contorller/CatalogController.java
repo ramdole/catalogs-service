@@ -26,7 +26,7 @@ public class CatalogController {
 
   @GetMapping("/heath_check")
   public String status() {
-    return String.format("It's Working in User Service on Port %s.",
+    return String.format("It's Working in Catalog Service on Port %s.",
         env.getProperty("local.server.port"));
   }
 
