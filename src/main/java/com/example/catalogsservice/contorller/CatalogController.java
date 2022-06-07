@@ -4,7 +4,7 @@ import com.example.catalogsservice.dto.CatalogDto;
 import com.example.catalogsservice.jpa.CatalogEntity;
 import com.example.catalogsservice.service.CatalogService;
 import com.example.catalogsservice.vo.ResponseCatalog;
-import java.util.ArrayList;
+import com.google.common.collect.Lists;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -33,7 +33,7 @@ public class CatalogController {
   @GetMapping("catalogs")
   public ResponseEntity<List<ResponseCatalog>> getCatalogs() {
     Iterable<CatalogEntity> catalogs = catalogService.getAllCatalogs();
-    List<ResponseCatalog> result = new ArrayList<>();
+    List<ResponseCatalog> result = Lists.newArrayList();
     catalogs.forEach(user-> result.add(new ModelMapper().map(user, ResponseCatalog.class)));
     return ResponseEntity.status(HttpStatus.OK).body(result);
   }
